@@ -5,6 +5,7 @@ import cn.itcast.matlab.Predict;
 import cn.itcast.service.AfpService;
 import cn.itcast.service.impl.AfpServiceImpl;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +22,10 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/afp")
 public class AfpController {
+
+    @Autowired
+    private Predict pred;
+
     @RequestMapping("/fileUpload")
     public String testResponseJson(String RNA, MultipartFile uploadFile, HttpServletRequest request, Model model)
             throws Exception{
@@ -53,8 +57,6 @@ public class AfpController {
         service.generateFeatures(afp, pyPath, folder);
 
         //调用matlab的包进行识别
-        Predict pred = new Predict();
-
         Object[] res = pred.func(afp, folder);
         MWNumericArray arr = (MWNumericArray) res[0];
         int[][] o = (int[][]) arr.toIntArray();
@@ -105,7 +107,7 @@ public class AfpController {
     public static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
-            for (int i = 0; i < children.length; i++) {
+            for(int i = 0; i < children.length; i++) {
                 boolean success = deleteDir
                         (new File(dir, children[i]));
                 if (!success) {

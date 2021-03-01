@@ -65,4 +65,6 @@
         </property>
     </bean>
 
+    <bean id="predict" class="cn.itcast.matlab.Predict" scope="singleton"></bean>
+
 </beans>

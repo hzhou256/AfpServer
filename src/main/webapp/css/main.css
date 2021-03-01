@@ -1,0 +1,209 @@
+@charset "utf-8";
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    width: 1200px;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+#header {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+#header_box {
+    position: relative;
+
+    background-repeat: no-repeat;
+    background-position: left center;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: #999;
+    background-image: url(../img/logo.png);
+}
+#slogan {
+    position: absolute;
+    height: 100px;
+    width: 800px;
+    top: 0;
+    right: 0;
+    text-align: center;
+
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../img/slogan.png);
+}
+li {
+    list-style-position: outside;
+}
+#main_box #show {
+    background-image: url(../img/timg.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 700px;
+    background-color: #F6F7FB;}
+#link_box {
+    border: thin solid #999;
+    margin-top: 10px;
+    background-color: #EFEFEF;
+    padding-top: 5px;
+    padding-right: 0;
+    padding-bottom: 5px;
+    padding-left: 0;
+    border-radius:5px;}
+#link_box img {
+    height: 14px;
+    width: 14px;
+    margin-left: 10px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;}
+#link_box a {
+    font-size: 14px;
+    color: #666;
+    margin-right: 3px;
+    margin-left: 3px;}
+#header a {
+    font-family: 'Microsoft YaHei', serif;
+    color: #525252;
+    text-decoration: none;}
+#main_box {
+    height: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: thin solid #999;
+    overflow: hidden;
+}
+
+#nav_box {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;}
+#nav_box li {
+    font-family: 'Microsoft YaHei', serif;
+    float: right;
+    width: auto;
+    list-style-type: none;
+    margin-left: 5px;
+    background-color: #e7e7e7;
+    color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 10px 10px 0px 0px;}
+#nav_box li:hover {
+    color: white;
+    background-color: #008CBA;}
+#nav_box a:hover {
+    color: white;
+    background-color: #008CBA;}
+.nav_show {
+    float: right;
+    width: auto;
+    list-style-type: none;
+    margin-left: 5px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 12px;
+    padding-right: 25px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    background-color: #008CBA;}
+.nav_show a {
+    color: white;}
+#main_title {
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: #999;
+    background-color: #EFEFEF;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #333;
+    text-indent: 15px;
+    border-radius:5px 5px 0 0;}
+
+#main {
+    position: relative;
+    margin-top: 10px;
+    border-radius:5px;
+    border: thin solid #999;
+    padding: 0;
+    height: auto;}
+
+#footer_box {
+    border-top-width: thin;
+    border-right-width: thin;
+    border-bottom-width: thin;
+    border-left-width: thin;
+    border-top-style: solid;
+    border-top-color: #999;
+    font-size: 12px;
+    line-height: 25px;
+    text-align: center;
+    color: #333;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#button_box {
+    margin-right: auto;
+    margin-left: auto;
+}
+#button_box a {
+    border: thin solid #999;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #E7E7E7;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #333;
+    font-family: "MS Serif", "New York", serif;
+    font-size: 18px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+#button_box a:hover {
+    color: white;
+    background-color: #008CBA;
+}
+#main_box h3 {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #CCC;
+    padding-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
