@@ -40,10 +40,11 @@
 <%--    <a href="../index.jsp">Server</a>--%>
 <%--</div>--%>
 
-<div id="main_box" class="box">
+<div id="main_box" class="box" style="overflow: hidden">
     <div id="main_title">Service page</div>
     <h3>Prediction results</h3>
-    <table class="table">
+    <div style="text-align: center; margin: auto">
+    <table class="table" style='width: 90%; margin: auto' >
         <thead>
         <tr>
             <th>index</th>
@@ -63,11 +64,12 @@
     </c:forEach>
     </tbody>
     </table>
+    </div>
     <br/>
 </div>
 
 <!-- footer box -->
-<div id="footer_box" class="box">
+<div id="footer_box" class="box" style="overflow: hidden">
     Address：Building 55B, Peiyang Park Campus No.135, Yaguan Road, Tianjin Haihe Education Park, Tianjin, China &nbsp;|&nbsp; P.C.：300050<br />
     Copyright：School of Computer Science and Technology, TianJin University. All Rights Reserved.
 </div>

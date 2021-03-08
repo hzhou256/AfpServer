@@ -162,6 +162,7 @@ li {
     height: auto;}
 
 #footer_box {
+    height: auto;
     border-top-width: thin;
     border-right-width: thin;
     border-bottom-width: thin;

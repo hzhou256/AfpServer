@@ -1,21 +1,18 @@
 package cn.itcast.matlab;
 
 import cn.itcast.domain.Afp;
-import com.mathworks.toolbox.javabuilder.*;
-import mkghknn_package.*;
+import com.mathworks.toolbox.javabuilder.MWException;
+import mkghknn_package.Class1;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Predict {
+    @Autowired
+    private Class1 c1;
 
     public Object[] func(Afp afp, String folder) {
-        Class1 c1 = null;
-        try {
-            c1 = new Class1();
-        } catch (MWException e) {
-            e.printStackTrace();
-        }
         String uid = afp.getUid();
         String filename = afp.getFilename();
-
+        System.out.println(folder);
         Object[] res = null;
         try {
             res = c1.test_Entry(2, uid, filename, folder);
@@ -24,7 +21,7 @@ public class Predict {
         }
         //System.out.println(res[0]);
         //System.out.println(res[1]);
-        c1.dispose();
+        //c1.dispose();
         return res;
     }
 }

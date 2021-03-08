@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -27,32 +30,51 @@ public class AfpController {
     private Predict pred;
 
     @RequestMapping("/fileUpload")
-    public String testResponseJson(String RNA, MultipartFile uploadFile, HttpServletRequest request, Model model)
+    public String testResponseJson(String RNA, MultipartFile uploadFile, String fastaSeq, HttpServletRequest request, Model model)
             throws Exception{
+//        System.out.println(fastaSeq);
+//        System.out.println(uploadFile.isEmpty());
         //把文件加上随机数，防止文件重复
         String uid = UUID.randomUUID().toString().replace("-", "").toUpperCase();
         String fileName = uid+".fasta";
         //2.获取文件路径
         ServletContext context = request.getServletContext();
         String realPath = context.getRealPath("/");
-        String basePath = realPath+"/WEB-INF/temp/feature/"+uid;
+        System.out.println(realPath);
+        String basePath = realPath+"WEB-INF/temp/feature/"+uid;
 
         File file = new File(basePath);
         if(!file.exists()) {
             file.mkdirs();
         }
         //5.使用MulitpartFile接口中方法，把上传的文件写到指定位置
-        uploadFile.transferTo(new File(file,fileName));
-
+        //如果上传了文件，优先使用文件
+        if(!uploadFile.isEmpty())
+            uploadFile.transferTo(new File(file,fileName));
+        //否则使用文本框序列保存为文件
+        else if(fastaSeq != null && fastaSeq.length() > 0) {
+//            System.out.println(fastaSeq);
+            FileWriter fw = null;
+            try {
+                fw = new FileWriter(basePath+"/"+fileName);
+                //将str里面的内容读取到fw所指定的文件中
+                fw.write(fastaSeq);
+            } catch(IOException e) {
+                e.printStackTrace();
+            } finally {
+                if(fw != null)
+                    fw.close();
+            }
+        }
         Afp afp = new Afp();
         afp.setUid(uid);
         afp.setFilename(RNA);
 
         //调用service生成feature的csv文件
-        String pyPath = realPath+"/WEB-INF/extract_feature/";
+        String pyPath = realPath+"WEB-INF/extract_feature/";
         AfpService service = new AfpServiceImpl();
 
-        String folder = realPath+"/WEB-INF/temp/feature/";
+        String folder = realPath+"WEB-INF/temp/feature/";
 
         service.generateFeatures(afp, pyPath, folder);
 
@@ -61,10 +83,10 @@ public class AfpController {
         MWNumericArray arr = (MWNumericArray) res[0];
         int[][] o = (int[][]) arr.toIntArray();
         List<List<Integer>> list = new ArrayList<>();
-        for(int i = 0; i < o.length; i++) {
+        for (int[] ints : o) {
             List<Integer> temp = new ArrayList<>();
-            for(int j = 0; j < o[0].length; j++) {
-                temp.add(o[i][j]);
+            for (int j = 0; j < o[0].length; j++) {
+                temp.add(ints[j]);
             }
             list.add(temp);
         }
@@ -107,9 +129,8 @@ public class AfpController {
     public static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
-            for(int i = 0; i < children.length; i++) {
-                boolean success = deleteDir
-                        (new File(dir, children[i]));
+            for (String child : children) {
+                boolean success = deleteDir(new File(dir, child));
                 if (!success) {
                     return false;
                 }

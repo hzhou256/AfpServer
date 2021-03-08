@@ -9,7 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de534c07-506d-4340-95b3-63a0e180747d" name="默认的" comment="" />
+    <list default="true" id="de534c07-506d-4340-95b3-63a0e180747d" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/AfpServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AfpServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/itcast/controller/AfpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/itcast/controller/AfpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/itcast/matlab/Predict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/itcast/matlab/Predict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,11 +60,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study\java\AfpServer\src\main\webapp\WEB-INF\lib" />
       <recent name="D:\Study\java\AfpServer\src\main\webapp\img" />
       <recent name="D:\Study\java\AfpServer\src\main\webapp" />
     </key>
@@ -66,15 +76,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,6 +190,14 @@
       <workItem from="1614577173935" duration="16000" />
       <workItem from="1614577194500" duration="4727000" />
       <workItem from="1614581978194" duration="5223000" />
+      <workItem from="1614607780996" duration="37000" />
+      <workItem from="1615172097852" duration="65000" />
+      <workItem from="1615172172138" duration="434000" />
+      <workItem from="1615172621574" duration="11283000" />
+      <workItem from="1615189415783" duration="8000" />
+      <workItem from="1615189434393" duration="6650000" />
+      <workItem from="1615202465421" duration="532000" />
+      <workItem from="1615203010647" duration="813000" />
     </task>
     <servers />
   </component>

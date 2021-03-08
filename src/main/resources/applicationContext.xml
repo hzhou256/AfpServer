@@ -59,12 +59,14 @@
 
     <!-- 配置文件上传解析器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 设置上传文件的最大尺寸为5MB -->
+        <!-- 设置上传文件的最大尺寸为1MB -->
         <property name="maxUploadSize">
-            <value>5242880</value>
+            <value>1048576</value>
         </property>
     </bean>
 
     <bean id="predict" class="cn.itcast.matlab.Predict" scope="singleton"></bean>
+
+    <bean id="class1" class="mkghknn_package.Class1" scope="singleton"></bean>
 
 </beans>

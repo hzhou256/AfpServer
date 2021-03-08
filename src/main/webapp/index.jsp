@@ -46,35 +46,50 @@
 
     <h3> Identifying non-coding RNA subcellular localization:</h3>
     <form action="afp/fileUpload" method="post" enctype="multipart/form-data" onsubmit="return check()">
+        <div style="margin: auto">
         <table width="100%">
             <tr>
-                <td width="200px;" height="35px;" align="right">RNA type:</td>
+                <td width="300px;" height="35px;" align="right">RNA type: </td>
                 <td><label for="name"></label>
                     <select name="RNA" id="name">
                         <option value ="snoRNA">snoRNA</option>
                         <option value ="lncRNA">lncRNA</option>
                         <option value="miRNA">miRNA</option>
                     </select></td>
-                <td width="200px;">&nbsp;</td>
+<%--                <td width="200px;">&nbsp;</td>--%>
             </tr>
             <tr>
-                <td width="200px;" height="35px;" align="right">Fasta sequence file:<br/></td>
-                <td><input type="file" name="uploadFile" id="uploadFile"/></td>
-                <td width="200px;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td  align="right">Note:</td>
-                <td bgcolor="#F5F5F5">
-                    <p style="padding:20px;">Your submission must be a fasta text file. The number of sequences should be less than or equal to 300. The results will be shown after processing.</p>
+                <td width="300px;" height="35px;" align="right">Fasta sequence: <br/></td>
+                <td>
+                    <textarea cols="150px" rows="5" wrap="soft" id="fastaSeq" name="fastaSeq" placeholder="Please input fasta sequence, or upload the fasta file below." maxlength="150"></textarea>
                 </td>
-                <td width="200px;">&nbsp;</td>
+                <td width="300px;">&nbsp;</td>
             </tr>
             <tr>
-                <td width="200px;" height="35px;" align="right">&nbsp;</td>
+                <td width="300px;" height="35px;" align="right">Fasta file: <br/></td>
+                <td><input type="file" name="uploadFile" id="uploadFile"/></td>
+                <td width="300px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td  align="right">Note: </td>
+                <td bgcolor="#F5F5F5">
+                    <p style="padding:20px;">You should input your query Fasta sequence in the input area, or upload the Fasta format file.<br/>
+                        The number of sequences should be less than or equal to 200. The results will be shown after processing.<br/><br/>
+                        Example:<br/>
+                        >0|snoRNA|Example<br/>
+                        CAGTAGTGATGAAATTCCACTTCATTGGTCCGTGTTTCTGAACCACATGATTTTCTCGGATGTTCTGATG<br/>
+                    </p>
+
+                </td>
+                <td width="300px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="300px;" height="35px;" align="right">&nbsp;</td>
                 <td><input id="offline_submit" type="submit" value="Submit"></td>
-                <td width="200px;">&nbsp;</td>
+                <td width="300px;">&nbsp;</td>
             </tr>
         </table>
+        </div>
     </form>
     <br/>
 
@@ -136,11 +151,14 @@
 <script type="text/javascript">
     function check(){
         var myfile = document.getElementById("uploadFile").value;
-        if(myfile ==  null || myfile === ''){
-            alert("Please select file");
-            return false;
-        }
-        return true;
+        var seq = document.getElementById("fastaSeq").value;
+        // if(myfile == null || myfile === '') {
+        //     alert("Please select file");
+        // }
+        if((seq != null && seq !== '') || (myfile !== null && myfile !== ''))
+            return true;
+        alert("Please select file or input sequences in text area.");
+        return false;
     }
 
 </script>
